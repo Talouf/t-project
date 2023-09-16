@@ -1,0 +1,23 @@
+{
+  "name": "node-mkdirs",
+  "version": "0.0.1",
+  "description": "Creates a directory and all parent directories",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grj1046/node-mkdirs.git"
+  },
+  "keywords": [
+    "mkdir",
+    "directory"
+  ],
+  "author": "grj1046",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grj1046/node-mkdirs/issues"
+  },
+  "homepage": "https://github.com/grj1046/node-mkdirs"
+}
