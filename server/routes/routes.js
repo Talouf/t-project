@@ -22,7 +22,6 @@ const fetchPlayerRank = async (summonerId, region) => {
     }
 };
 
-
 const fetchMatchHistory = async (puuid, region, gameType) => {
     const RIOT_BASE_URL = `https://${region}.api.riotgames.com/lol`;
     try {
@@ -81,12 +80,6 @@ router.get('/:region/summoner/:puuid/matchhistory', async (req, res) => {
         res.status(500).json({ message: "Internal Server Error", error: error.message });
     }
 });
-
-router.get('/suggestions', async (req, res) => {
-    const query = req.query.query;
-    const matchingPlayers = await Player.find({ name: { $regex: query, $options: 'i' } }).limit(10);
-    res.json(matchingPlayers);
-  });  
 
   router.get('/models/champion', async (req, res) => {
     try {

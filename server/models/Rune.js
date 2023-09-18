@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 const runeSlotSchema = new mongoose.Schema({
   runes: [{
       id: Number,

@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 const summonerSchema = new mongoose.Schema({
   id: String,
   name: String,

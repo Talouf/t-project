@@ -1,4 +1,3 @@
-// Environment Variables
 require('dotenv').config();
 
 const express = require('express');
@@ -29,13 +28,6 @@ app.get('/', (req, res) => {
 });
 // Routes
 app.use('/api/players', playersRouter);
-
-app.get('/api/players/suggestions', async (req, res) => {
-    const query = req.query.query;
-    // Fetch player names from your database that match the query
-    // Return a list of matching player names
-    res.json(matchingPlayers);
-});
 
 const PORT = 5000;
 app.listen(PORT, () => {
