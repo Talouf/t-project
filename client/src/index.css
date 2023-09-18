@@ -1,3 +1,18 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.suggestions {
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.suggestion {
+    padding: 8px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #f5f5f5;
+    }
+}
