@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // <-- Change this line
+import { useNavigate } from 'react-router-dom'; 
 import MainTemplate from './MainTemplate';
 
 const MainPage = () => {
     const [name, setName] = useState("");
     const [region, setRegion] = useState("euw1");
-    const navigate = useNavigate(); // <-- Change this line
+    const navigate = useNavigate(); 
 
     const handleSearch = () => {
-        navigate('/playersearch', { state: { query: name, region: region } }); // <-- Change this line
+        navigate('/playersearch', { state: { query: name, region: region } }); 
     };
 
     return (

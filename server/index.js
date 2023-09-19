@@ -3,7 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const playersRouter = require('./routes/routes');
+const playersRouter = require('./routes/api');
+const championBuildsRoutes = require('./routes/championBuilds');
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.get('/', (req, res) => {
 });
 // Routes
 app.use('/api/players', playersRouter);
+app.use('/api/championBuilds', championBuildsRoutes);
 
 const PORT = 5000;
 app.listen(PORT, () => {
