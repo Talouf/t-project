@@ -2,7 +2,6 @@ const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 const Player = require('../models/player');
-const User = require('../models/User');
 const { ChampionEN, ChampionFR } = require('../models/Champion');
 const Rune = require('../models/Rune');
 const SummonerSpell = require('../models/SummonerSpell');

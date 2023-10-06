@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { UserProvider } from './context/UserContext';
 import MainPage from './components/MainPage';
 import PlayerSearchPage from './components/PlayerSearch';
 import ChampionList from './components/ChampionPage/ChampionList';
@@ -9,6 +10,7 @@ import ItemDetail from './components/ItemPage/ItemDetail';
 
 function App() {
     return (
+        <UserProvider>
         <Router>
             <Routes>
                 <Route path="/" element={<MainPage />} />
@@ -20,6 +22,7 @@ function App() {
                 {/* ... other routes ... */}
             </Routes>
         </Router>
+        </UserProvider>
     );
 }
 

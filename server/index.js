@@ -5,8 +5,10 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const playersRouter = require('./routes/api');
 const championBuildsRoutes = require('./routes/championBuilds');
-
+const userRoutes = require('./routes/user');
+const jwtMiddleware = require('./middleware/auth');
 const app = express();
+
 
 // Middleware
 app.use(cors({
@@ -30,7 +32,11 @@ app.get('/', (req, res) => {
 // Routes
 app.use('/api/players', playersRouter);
 app.use('/api/championBuilds', championBuildsRoutes);
+app.use('/api/users', userRoutes);
 
+app.use('/api/protected', jwtMiddleware, (req, res) => {
+    res.json({ message: 'This is a protected route', user: req.user });
+});
 const PORT = 5000;
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);

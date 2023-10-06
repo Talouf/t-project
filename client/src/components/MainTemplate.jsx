@@ -1,6 +1,21 @@
 import React from 'react';
+import { useUser } from '../context/UserContext';
+import Login from './Login';
+import Logout from './Logout';
 
 const MainTemplate = ({ children }) => {
+    const { user, setUser } = useUser();
+
+    const handleLoginSuccess = (token) => {
+        // Optionally decode token and set user data
+        setUser({ /* your user data */ });
+    };
+
+    const handleLogout = () => {
+        setUser(null);
+        localStorage.removeItem('token');
+    };
+
     return (
         <div className="bg-gray-900 min-h-screen text-white">
             <header className="flex justify-between items-center p-4 bg-blue-800">
@@ -10,8 +25,15 @@ const MainTemplate = ({ children }) => {
                     {/* ... other navigation links ... */}
                 </div>
                 <div>
-                    <button className="mr-4 bg-red-500 p-2 rounded">Login</button>
-                    <a href="https://twitter.com/">Contact Us</a>
+                    {user ? (
+                        <>
+                            <span className="mr-4">Welcome, {user.name}!</span>
+                            <Logout onLogout={handleLogout} />
+                        </>
+                    ) : (
+                        <Login onLoginSuccess={handleLoginSuccess} />
+                    )}
+                    <a href="https://twitter.com/" className="ml-4">Contact Us</a>
                 </div>
             </header>
 
@@ -27,5 +49,6 @@ const MainTemplate = ({ children }) => {
             </footer>
         </div>
     );
-}
+};
+
 export default MainTemplate;
